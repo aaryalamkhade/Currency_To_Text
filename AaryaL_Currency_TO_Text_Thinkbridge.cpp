@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include<limits>
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -205,14 +206,23 @@ int main()                                    //main function
 	    int int_amount;
 	    cout<<"Enter Currency Value: ";
 	    cin>>float_amount;
+	    if(cin.fail())
+	    {
+	    	cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+            cout<<"You have entered wrong input"<<endl;
+	   	}
+		else{
 	    int_amount=float_amount;
 	    cout<<"In Words: ";
 		word(float_amount,int_amount);
-		cout<<endl<<endl;
+		cout<<endl<<endl;}
 		cout<<"If you want to convert currency to text again Press 1:";
 	    cin>>loop_value;
 	}while(loop_value==1);
 }
+
+
 
 
 
